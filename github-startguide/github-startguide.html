@@ -1,0 +1,681 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>GitHub Startguide </title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="cc913cb7-6ce2-4533-b7bc-13dfca4704b2" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🐈‍⬛</span></div><h1 class="page-title">GitHub Startguide </h1><p class="page-description"></p></header><div class="page-body"><p id="50dd559b-7099-419b-93bb-546841337b2b" class="">____________________________________________________________________________</p><h3 id="05ee7314-db01-4ff6-9540-bff5f381b114" class="">CREATING A REPOSITORY </h3><p id="2d552e01-60ed-4f34-906a-01521898fe5c" class="">ON YOUR GITHUB ACCOUNT</p><p id="0294f67e-aa0c-4b5e-88fe-a7871b74c96a" class="">____________________________________________________________________________</p><ol type="1" id="1f214984-4a12-4ce6-b8d5-e67f5b17d5b1" class="numbered-list" start="1"><li> 🖥️<mark class="highlight-blue"> LOCAL</mark> → open Terminal and create a new project folder by typing: <p id="a9a3fa11-9169-45db-b5fc-f7ee4608e799" class=""><code><mark class="highlight-blue">mkdir &lt;folder-name&gt;</mark></code></p></li></ol><ol type="1" id="b68cc4f1-9b9d-4d8d-b6e3-f7eef28fd1f7" class="numbered-list" start="2"><li>use <mark class="highlight-blue"><code>cd</code></mark> (change directory) to navigate to that newly created folder:<p id="bcd29b27-cdc7-46d7-817e-7d419358681a" class=""><code><mark class="highlight-blue">cd &lt;folder-name&gt;</mark></code></p></li></ol><ol type="1" id="030ce584-fa0d-455d-bf20-7634d3ffaf6b" class="numbered-list" start="3"><li><span style="border-bottom:0.05em solid">initialize this folder</span> to become a git folder and type:<p id="405a06d7-78c6-41f8-ba28-21bdbe35467c" class=""><code><mark class="highlight-blue">git init</mark></code></p></li></ol><ol type="1" id="61a32811-3fc0-475d-ab52-1261823d5fd8" class="numbered-list" start="4"><li><span style="border-bottom:0.05em solid">add your files</span> to the staging area by typing:<p id="cc0eb572-d0da-4d6c-a772-4bebad573c89" class=""><mark class="highlight-blue"><code>git add .</code></mark></p><p id="a3e463ca-8462-49ff-b8d2-b69eccd01126" class="">T<mark class="highlight-default">his will add everything in the current folder to git</mark></p><p id="ace2d02d-7320-48f2-8708-58b61a918864" class=""><em> optional → Before you type git add, you can create a readme file and then continue to add it:</em><div class="indented"><ul id="b26b1978-b8df-460d-adf8-f935abf93704" class="bulleted-list"><li style="list-style-type:disc"><em><code><mark class="highlight-blue">touch </mark></code></em><em><code><mark class="highlight-blue"><a href="http://readme.md">readme.md</a></mark></code></em><em> creates the file</em></li></ul><ul id="ee2c408e-f930-43d8-ade9-1d2768b25c71" class="bulleted-list"><li style="list-style-type:disc"><em><code><mark class="highlight-blue">echo “your-text” &gt; </mark></code></em><em><code><mark class="highlight-blue"><a href="http://readme.md">readme.md</a></mark></code></em><em><code><mark class="highlight-blue"> </mark></code></em><em><mark class="highlight-blue"> </mark></em><em>will write the text in the “”into your readme</em></li></ul><ul id="ec33888a-b50a-4fdf-bc41-c7992aeb0a89" class="bulleted-list"><li style="list-style-type:disc"><em><code><mark class="highlight-blue">cat </mark></code></em><em><code><mark class="highlight-blue"><a href="http://readme.md">readme.md</a></mark></code></em><em> will read the text in the file to make sure it got there</em></li></ul></div></p></li></ol><ol type="1" id="eccf7f2d-b14b-4a61-9ceb-482caafa328d" class="numbered-list" start="5"><li><span style="border-bottom:0.05em solid">commit the changes</span> with a message by typing:<p id="f2139720-0e43-469a-9861-03a85dd9e61c" class=""><code><mark class="highlight-blue">git commit -m “initial commit”</mark></code></p><p id="ede76ec9-f019-4b18-a399-25013363278d" class="">
+</p></li></ol><p id="755937ea-a226-4752-94d8-0e9619f09913" class=""> 6. 🌐 <mark class="highlight-teal">REMOTE</mark> → create a new repo on gitHub :</p><ul id="e2d1d8cb-6243-42d8-a0e5-bde66c2d929f" class="bulleted-list"><li style="list-style-type:disc">Go to the gitHub website and your account</li></ul><ul id="6fdbbc7d-8c6a-4b8d-a048-951a7b048e43" class="bulleted-list"><li style="list-style-type:disc">click on <mark class="highlight-teal">new</mark> button on the upper left side of the page</li></ul><ul id="1963b32d-1b13-46b1-a811-99d000c3204f" class="bulleted-list"><li style="list-style-type:disc">add a repository name and select public (or private). </li></ul><ul id="cb5ed697-e30d-48c0-af00-52efb25720f5" class="bulleted-list"><li style="list-style-type:disc">click on <mark class="highlight-teal">create repository</mark> button</li></ul><ul id="fdc1ebd7-2730-46a0-a0da-13858a8a43b6" class="bulleted-list"><li style="list-style-type:disc">scroll down all the way to<em> “…or push an existing repository from the command line” </em><p id="cdec5afb-6ce8-484a-94cb-d96d5f07a6fb" class=""><em>and copy the code underneath</em></p></li></ul><p id="b5798dd7-d50c-4eb8-bc70-74fde3822242" class="">
+</p><ol type="1" id="78f83bb6-f833-41a2-ad21-fff2506f9ef1" class="numbered-list" start="7"><li> 🖥️<mark class="highlight-blue"> LOCAL</mark> → switch to Terminal and connect the local repo to the remote one: <ul id="8fd96d27-4682-46ee-aef6-ed9d2cbd9232" class="bulleted-list"><li style="list-style-type:disc">paste the code in the command line and hit enter</li></ul><ul id="d9b0256a-3411-42bf-b43e-fde009a1f3a6" class="bulleted-list"><li style="list-style-type:disc">push the local repository to the remote one by typing<p id="b7b40ec6-fbe0-42b3-8ce8-14a633dae83d" class=""><mark class="highlight-blue"><code>git push -u origin main</code></mark></p></li></ul><ul id="e1b6e2df-94e0-412a-a0dc-c93b10806ee7" class="bulleted-list"><li style="list-style-type:disc">with <code><mark class="highlight-blue">git status</mark></code> you can check if all worked out</li></ul><p id="5b376ef0-026f-43a6-b274-e762dbfaf7f1" class="">
+</p></li></ol><p id="d7ee5be5-c579-4848-ab2b-63080c0a3aaa" class="">____________________________________________________________________________</p><h3 id="53e33340-093c-41a0-b8de-c7b0e83de9c4" class="">CREATING NEW BRANCHES / PULL REQUEST</h3><p id="b2db7364-f81c-4c2a-bd4f-db62cffb9db8" class="">AS TO WORK ON AN ISSUE OF AN EXISTING REPOSITORY</p><p id="a2f02b19-85f3-4700-903d-162fe38443c4" class="">____________________________________________________________________________</p><ol type="1" id="04536a5b-9416-4f8d-b24d-fb838f8ad273" class="numbered-list" start="1"><li> 🖥️<mark class="highlight-blue"> LOCAL</mark> → open Terminal and <span style="border-bottom:0.05em solid">navigate to the repository main branch</span> <ul id="139509a8-41f7-4b46-91ab-58caf6c574bc" class="bulleted-list"><li style="list-style-type:disc">use <code><mark class="highlight-blue">cd</mark></code> (change directory) to get there </li></ul><ul id="cae0723c-1976-4050-9ff9-2c21bef32ebd" class="bulleted-list"><li style="list-style-type:disc">use <code><mark class="highlight-blue">ls</mark></code> (list) to list all possible destinations and                                                                             <mark class="highlight-blue"><code>pwd</code></mark> (print working directory) to show where you are at </li></ul></li></ol><ol type="1" id="95c8845c-7620-451d-9e21-26280775ac7f" class="numbered-list" start="2"><li><span style="border-bottom:0.05em solid">get the latest changes</span> from the remote repository by typing:<p id="84c4fe70-1a63-4ffd-95be-b246331e14b0" class=""><mark class="highlight-blue"><code>git fetch origin</code></mark></p></li></ol><ol type="1" id="4591f537-8d61-4b53-86c8-e41bff9dff42" class="numbered-list" start="3"><li><span style="border-bottom:0.05em solid">create and switch to a new branch</span> for the issue you want to work on by typing:<p id="a72dd606-a2dc-4745-81c0-e3d9197b5543" class=""><mark class="highlight-blue"><code>git checkout -b &lt;branch-name&gt;</code></mark></p></li></ol><ol type="1" id="a4128737-c9a2-48c1-a792-561f0d1eb221" class="numbered-list" start="4"><li><span style="border-bottom:0.05em solid">work on the issue</span> on you local computer as usual. Make changes to code, add files, etc.</li></ol><ol type="1" id="fe78ffa5-7ab1-4cd2-b28c-654313ee324e" class="numbered-list" start="5"><li><span style="border-bottom:0.05em solid">add your changes</span> to the staging area by typing:<p id="7aef8494-ba9d-4baf-b50c-4582c6868dac" class=""><mark class="highlight-blue"><code>git add .</code></mark></p></li></ol><ol type="1" id="3dc429a5-e108-446f-a289-d7003ff1882a" class="numbered-list" start="6"><li><span style="border-bottom:0.05em solid">commit the changes</span> with a message by typing:<p id="48b11fd4-ad1c-4c6c-b71c-b076327d7bfd" class=""><code><mark class="highlight-blue">git commit -m “Example: Commit message”</mark></code></p></li></ol><ol type="1" id="0c829d09-df06-444f-ae88-2f6ecac6e738" class="numbered-list" start="7"><li><span style="border-bottom:0.05em solid">push the new local branch</span> to the remote gitHub repo by typing:<p id="8cb42535-4110-4fd0-98f1-a23d2787d849" class=""><code><mark class="highlight-blue">git push origin &lt;branch-name&gt;</mark></code></p></li></ol><ol type="1" id="b793af5b-8969-4cfa-a23f-b655efdf3877" class="numbered-list" start="8"><li>🌐 <mark class="highlight-teal">REMOTE</mark> → create a pull request by following these steps:<ul id="744dcc3f-3fb0-40ac-9af5-5c895975a24a" class="bulleted-list"><li style="list-style-type:disc">Go to the gitHub repository in your browser</li></ul><ul id="b75cd53a-59ee-4a8e-ab47-6807a259e245" class="bulleted-list"><li style="list-style-type:disc">click on <mark class="highlight-teal">pull requests</mark> tab</li></ul><ul id="42da906a-5637-47af-9478-542a6c68f310" class="bulleted-list"><li style="list-style-type:disc">click the <mark class="highlight-teal">new pull request</mark> button</li></ul><ul id="e02e6b9d-4763-4e59-af3b-c065c0fabbfb" class="bulleted-list"><li style="list-style-type:disc">select main branch and the newly created branch from the dropdown menu</li></ul><ul id="a9c34902-277e-47eb-82be-5ec05ade941a" class="bulleted-list"><li style="list-style-type:disc">review the changes and click on<mark class="highlight-teal"> create pull request </mark></li></ul><ul id="c3782443-4362-4b23-b9f5-d736bf89194a" class="bulleted-list"><li style="list-style-type:disc">add a title and comment and  click on <mark class="highlight-teal">create pull request</mark> again</li></ul><ul id="2881c358-710b-4a8c-ab0c-4687cd92d9ee" class="bulleted-list"><li style="list-style-type:disc">click the <mark class="highlight-teal">create pull request</mark> button to submit the request</li></ul></li></ol><ol type="1" id="2878b887-64f9-4769-930e-3382c784dd98" class="numbered-list" start="9"><li>merge the pull request<ul id="71d0f60e-6756-4855-8f44-24653aa3e2e1" class="bulleted-list"><li style="list-style-type:disc">if request is approved, message appears “✅<em>This branch has no conflicts with the base branch”.</em> You can then merge changes into main branch by hitting<mark class="highlight-teal"> merge pull request </mark></li></ul><ul id="2d2f9611-9a14-4768-afaa-4d040a26a6fe" class="bulleted-list"><li style="list-style-type:disc">now add a commit message and hit <mark class="highlight-teal">confirm merge</mark></li></ul><ul id="b6f05c6c-1313-41ee-8d62-2fbdfe604e31" class="bulleted-list"><li style="list-style-type:disc">delete the remote child branch on github by clicking on <mark class="highlight-purple">delete branch</mark></li></ul></li></ol><ol type="1" id="d7f68fea-35f1-4ff0-9c90-3e3612f8ae0b" class="numbered-list" start="10"><li>🖥️<mark class="highlight-blue"> LOCAL</mark> → switch back to Terminal and:<ul id="99429f2f-e233-463f-97ad-687642934fb3" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">copy the SSH link to it</span><p id="438d646a-c91f-4b62-95b8-af4a3223f063" class=""><mark class="highlight-blue"><code>git@github.com:jennywhitmore/we-share.git</code></mark> </p></li></ul><ul id="a7a8a1fc-5345-4be1-b75a-f20ae1710abe" class="bulleted-list"><li style="list-style-type:disc"><span style="border-bottom:0.05em solid">delete child branch locally</span> as well by typing:<p id="27ac11ea-308b-4c29-aa11-0c80f6c861ac" class=""><mark class="highlight-blue"><code>git branch -D &lt;branch name&gt;</code></mark></p></li></ul></li></ol><p id="964d17ba-1e94-4339-b668-5d20b6bcc9c4" class="">
+</p><p id="9d9292f7-7eb0-4b27-bd50-11a9c3751130" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
